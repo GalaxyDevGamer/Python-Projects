@@ -1,0 +1,4 @@
+a = [u'コンピュータ',u'ポケモン',u'東方',u'電車']
+b = ['computer','pokemon','touhou','densya']
+print a
+print b

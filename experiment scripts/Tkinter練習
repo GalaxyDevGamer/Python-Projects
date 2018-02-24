@@ -1,0 +1,52 @@
+from Tkinter import *
+import sys
+
+root = Tk()
+root.option_add("*font", (100))
+
+def start():pass
+
+Game = IntVar()
+Game.set(1)
+
+Software = IntVar()
+Software.set(0)
+
+mode = ['math function','typing practise','calculate total','register calculate']
+name_table = ['Addition','Substraction','Multiplication','Division']
+cnt = 0
+for n in name_table:
+    cnt+=1
+number_table = [0,1,2,3,4,5,6,7,8,9]
+menubar = Menu(root)
+root.configure(menu = menubar)
+Games = Menu(menubar, tearoff = True)
+SOFTWARES = Menu(menubar, tearoff = True)
+menubar.add_cascade(label="Games", underline = 0, menu=Games)
+menubar.add_cascade(label="SOFTWARES", underline = 0, menu=SOFTWARES)
+
+Games.add_command(label = "start", under = 0, command = start)
+Games.add_separator
+Games.add_radiobutton(label = "Math function", value = 1)
+Games.add_separator
+Games.add_radiobutton(label = "typing practise", value = 0)
+SOFTWARES.add_command(label = "start", under = 0, command = start)
+SOFTWARES.add_separator
+SOFTWARES.add_radiobutton(label = "calculate total price", value = 1)
+SOFTWARES.add_separator
+SOFTWARES.add_radiobutton(label = "calculate like register", value = 0)
+Games.add_command(label = "exit", under = 0, command = sys.exit)
+
+class App(Frame):
+    def __init__(self, master=None):
+        Frame.__init__(self, master)
+l = Label(text = "Menu").pack()
+Label(text ='Games').pack()
+Radiobutton(text = 'Game 1', variable = Game, value = 1, command=name_table).pack()
+Radiobutton(text = 'Game 2', variable = Game, value = 2).pack()
+
+Label(text ='SOFTWARES').pack()
+Radiobutton(text = 'Software 1', variable = Software, value = 1).pack()
+Radiobutton(text = 'Software 2', variable = Software, Value = 2).pack()
+
+root.mainloop()

@@ -1,0 +1,46 @@
+# -*- coding:utf-8 -*-
+
+from Tkinter import *
+import Dialog
+import sys
+
+root = Tk()
+root.option_add('*font', ('FixedSys, 14'))
+
+modes = [u'足し算',u'引き算',u'掛け算',u'割り算']
+    
+def math_function():
+    Dialog.Dialog(root, title = 'Menu', bitmap = 'info',
+                  text = u'モードを選択',
+                  strings = modes, default = 0, anchor = 'w',
+                  )
+                  
+    if Dialog=="":
+        Dialog.Dialog(root, title = 'math function', bitmap = 'info',
+                        text = 'True',
+                    strings = ['ok'], default = 0,
+                    )
+                      
+            
+
+def typing():
+    Dialog.Dialog(root, title = u'typing practise', bitmap = 'info',
+                  text = u'タイピング練習',
+                  strings = [u'始め'], default = 0,
+
+                  )
+                  
+m = Menu(root)
+root.configure(menu = m)
+menu = Menu(m, tearoff = True)
+m.add_cascade(label="Menu", underline = 0, menu=menu)
+menu.add_radiobutton(label = 'math function', value = 0, command = math_function)
+menu.add_separator
+menu.add_command(label = 'exit', under = 0, command = sys.exit)
+
+Label(root, text = u'メニューを選ぶかスタートを押してね').pack()
+b1 = Button(root, text = 'math function', command = math_function).pack()
+b2 = Button(root, text = 'typing practise', command = typing).pack()
+bb = Button(root, text = u'終了', command = sys.exit).pack()
+
+root.mainloop()

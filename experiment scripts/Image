@@ -1,0 +1,7 @@
+import Image
+
+Image.new('RGB', (60, 100))
+filename = "Image"
+im = Image.open(filename)
+
+im.show()

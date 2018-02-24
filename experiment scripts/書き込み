@@ -1,0 +1,8 @@
+import csv
+
+filename = "Write.csv"
+writecsv = csv.writer(file(filename, 'w'), lineterminator='n')
+a = raw_input('ID')
+b = input('password')
+writecsv.writelow(f = [a,b])
+

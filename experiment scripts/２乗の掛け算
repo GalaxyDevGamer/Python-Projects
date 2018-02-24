@@ -1,0 +1,12 @@
+a = input('input something\n')
+print a*a
+begin (PROGRAM)
+  again := 'Y';
+  while (again = 'Y') or (again = 'y') do
+  begin {while loop}
+     menu;
+     writeln('Do you wish to run this program again? Y/N ?');
+     readln(again);
+  end {while loop}
+end. {PROGRAM}  
+  

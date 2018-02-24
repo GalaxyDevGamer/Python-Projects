@@ -1,0 +1,2 @@
+a = raw_input('input something')
+print 'you entered',a

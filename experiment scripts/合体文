@@ -1,0 +1,3 @@
+x = raw_input('name of the product')
+y = input('price')
+print 'a',x,'costs', y,'yen'

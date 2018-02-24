@@ -1,0 +1,23 @@
+name = ['os','cpu','memory','graphics card','display','battery','ipod touch','ipod nano','ipod shuffle']
+price = [25000,24000,4800,22000,28000,15000,26000,16800,4200]
+ans = 0
+        
+while (1):
+    cnt = 0
+    for i in name:
+        cnt+=1
+        print cnt,i,price[cnt-1]
+    a = input('u"‚Ù‚µ‚¢¤•i‚Ì”Ô†‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢"\n')
+    b = input('u"”—Ê‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢"\n');
+    ans += price[a-1]*b
+    flag = raw_input('continue? y/n: \n')
+    if flag == 'n':
+        break
+print 'total price is',ans,'yen'
+x = input('customer paid\n')
+y = x-ans
+if y>0: print'change is', y,'yen'
+if y==0: print'change is 0yen'
+if y<0: print'you need more money.please pay', y,'yen'
+
+

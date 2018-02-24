@@ -1,0 +1,16 @@
+name = ['MB','mouse','keyboard','display','graphics card']
+price = [10, 20, 34, 53, 23, 92]
+ans = 0
+
+while (1):
+    cnt = 0
+    for i in name:
+        cnt+=1
+        print cnt,i,price[cnt-1]
+    a = input('select the index of product: ')
+    b = input('input the number you want: ')
+    ans += price[a-1]*b
+    flag = raw_input('continue? y/n : \n')
+    if flag == 'n':
+        break
+print 'total price is', ans

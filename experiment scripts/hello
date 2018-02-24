@@ -1,0 +1,6 @@
+from PIL import Image, ImageDraw, ImageFont
+font = ImageFont.truetype('/usr/share/fonts/japanese/TrueType/ipamp.ttf', 18, encoding='unic')
+image = Image.new('RGBA', (100, 100), (200, 200, 200))
+draw = ImageDraw.Draw(image)
+draw.text((10, 40), u'‚±‚ñ‚É‚¿‚í', font = font, fill='#0000FF')
+image.save('hello.png', 'PNG')

@@ -1,0 +1,12 @@
+flag = 'y'
+
+while (flag!='n'):
+    a = input('input your weight')
+    b = input('input your height')
+    x = a/b/b
+    print ('your DMI is...')
+    print x
+    if x<22: print('you are thin')
+    if x==22: print('normal')
+    if x>22: print('you are fat')
+    flag = raw_input('continue? y/n: \n')

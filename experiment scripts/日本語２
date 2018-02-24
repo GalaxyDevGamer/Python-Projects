@@ -1,0 +1,45 @@
+# -*- coding: utf-8 -*-
+
+import time
+
+mode = ['start','exit']
+
+print u"タイピング練習"
+print u"メニュー"
+cnt = 0
+for e in mode:
+    cnt+=1
+    print cnt,e
+i = input(u"モードを選択して番号を入力してください")
+
+a = [u"パソコン",u"オンラインゲーム",u"電車"]
+b = ['computer','online game','densya']
+p = 0
+
+def count():
+    for g in range(3, 1, -1):
+        print g
+        time.sleep(1.0)
+    print u"始め！"
+count()
+while (1):    
+    print u"パソコン"
+    e = raw_input('computer\n')
+    if e=='computer':
+        p+=1
+        print u"次"
+    print u"オンラインゲーム"
+    f = raw_input('online game\n')
+    if f=='online game':
+        p+=1
+        print u"次"
+    print u"電車"
+    h = raw_input('densya\n')
+    if h=='densya':
+        p+=1
+    print p
+    flag = raw_input('retry? y/n: ')
+    if flag!='y':
+        break
+    
+    

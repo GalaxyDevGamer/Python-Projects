@@ -1,0 +1,10 @@
+import csv
+
+filename = "writing.csv"
+csvfile = open(filename)
+
+for row in csv.reader(csvfile):
+    for x in row:
+        print x
+
+csvfile.close()        

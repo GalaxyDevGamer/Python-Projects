@@ -1,0 +1,30 @@
+abc = ['start','Exit']
+print 'Math Function game'
+print 'Menu:'
+cnt = 0
+for abcd in abc:
+    cnt+=1
+    print cnt,abcd
+m = input('choose from Menu')
+if m==1:
+    q = raw_input('input ID')
+    r = input('input password')
+mode = ['Addition','Substraction','Multiplication','Divison']
+
+while (1):
+    if m==2:
+         break 
+    cnt = 0   
+    for t in mode:
+        cnt+=1
+        print cnt,t
+    x = input('Choose the mode you want to play\n')
+    b = input('input the first number')
+    c = input('input the second number')
+    if x==1:print b+c
+    if x==2:print b-c
+    if x==3:print b*c
+    if x==4:print b/c
+    flag = raw_input('continue? y/n:')
+    if flag=='n':
+        break 

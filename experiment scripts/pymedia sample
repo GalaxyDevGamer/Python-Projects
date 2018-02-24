@@ -1,0 +1,47 @@
+# -*- coding:utf-8 -*-
+
+from Tkinter import *
+import sys
+
+root = Tk()
+
+def play_sound(fileobject,volume=0x7FFF,decoder="mp3"):
+    import pymedia.muxer as muxer, pymedia.audio.acodec as acodec, pymedia.audio.sound as sound
+    if fileobject == None:
+        return None
+
+    dm= muxer.Demuxer(decoder)
+    dec= None
+    snd = None
+    buff = ' '
+    while len(buff):
+        buff=fileobject.read(32000)
+        if len(buff):
+            frames= dm.parse(buff)
+            for fr in frames:
+                if dec== None:
+                    dec= acodec.Decoder( dm.streams[0] )
+                r= dec.decode( fr[1] )
+                if r and r.data:
+                    """
+                    AFMT_S16_LE  	符号つき 16 ビットオーディオ、リトルエンディアンバイトオーダ (Intelプロセッサで使われている形式)
+                    AFMT_S16_BE 	符号つき16ビットオーディオ、ビッグエンディアンバイトオーダ (68k、PowerPC、Sparcで使われている形式)
+                    ほとんどのシステムは、上記の形式のサブセットしかサポートしていません。また、多くのデバイスが AFMT_U8 だけしかサポートしていません。
+                    現在使われている最も一般的な形式はAFMT_S16_LEです。
+                    <http://www.python.jp/doc/2.4/lib/ossaudio-device-objects.html>
+                    """
+                    if snd== None:
+                        snd= sound.Output(r.sample_rate,r.channels,sound.AFMT_S16_LE)
+                        snd.setVolume(volume)
+                    snd.play( r.data )
+    fileobject.close()
+    return snd
+
+snd = play.play_sound(open("sunrise.mp3","rb"))
+snd1 = snd.stop()
+label(root, text = 'Music player').pack()
+b1 = Button(root, text = 'play', command = snd).pack()
+b2 = Button(root, text = 'stop', command = snd1).pack()
+
+root.mainloop()
+

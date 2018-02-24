@@ -1,0 +1,24 @@
+print '1,OS'
+print '2,CPU'
+print '3,memory'
+print '4,graphic board'
+print '5,display'
+print '6,sound card'
+print '7,battery'
+print '8,ipod touch'
+print '9,ipod nano'
+print '10,ipod shuffle'
+a = input('input number of the product you want')
+b = input('how many do you want? 1~10');
+price = 'yen'
+if a==1: price + 25000
+if a==2: price + 20000
+if a==3: price + 4000 
+if a==4: price + 20000
+if a==5: price + 25000
+if a==6: price + 10000
+if a==7: price + 15000
+if a==8: price + 25000
+if a==9: price + 15000
+if a==10: price + 4200
+print price;

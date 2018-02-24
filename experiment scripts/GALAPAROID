@@ -1,0 +1,10 @@
+# -*- coding:utf-8 -*-
+
+from Tkinter import *
+import Dialog
+import sys
+
+root = Tk()
+root.option_add('*font', ('FixedSys', 14))
+
+Label(root, text = 'Galaparoid').pack()

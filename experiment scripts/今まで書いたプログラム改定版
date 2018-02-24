@@ -1,0 +1,133 @@
+# -*- coding:utf-8 -*-
+
+import Tkinter as Tk
+
+mode = ['Addition','Substraction','Multiplication','Division']
+modes = ['start','exit']
+name = ['os','cpu','memory','graphics card','display','battery','ipod touch','ipod nano','ipod shuffle']
+price = [25000,24000,4800,22000,28000,15000,26000,16800,4200]
+money = 1000
+ans = 0
+
+class App(Tk):
+    def __init__(self,master=None):
+        Frame.__init__(self,master)
+        label = Label(window, text = "今まで作ったプログラム")
+        label.pack()
+        button = Button(window, text = "開始",command=self)
+        button.pack()
+        bu2 = Button(window, text = "終了", command=self.master.destroy)
+        bu2.pack()
+        abc = ['Math function',u"タイピング練習",u"DMIを計算",u"商品の合計金額を計算",u"レジ風試作会計ソフト"]
+        prices = [800,100,400,1000,700]
+        print 'you need to buy game or software at shop to start'
+        cnt = 0
+        for mark in market:
+            cnt+=1
+            print cnt,mark
+        asw = input('choose the mode\n')
+        if asw==1:
+            print 'you have', money,'yen'
+            cnt = 0
+            for abcd in abc:
+                cnt+=1
+                print cnt,abcd,prices[cnt-1]
+                if money>100:
+                    asd = input('u"ほしい商品の番号を入力してください"\n')
+                    money-=prices[asd-1]*1
+                    print 'thank you',money,'yen left'
+                    qp = raw_input('input y/n:')
+        if asw==2 or qp=='y' or 'n':
+            print 'Menu:'
+            cnt = 0
+            for abcd in abc:
+                cnt +=1
+                print cnt,abcd
+            a = input('choose the mode you want to play\n')
+            if a==1:
+                if asd!=1:
+                    print 'sorry you can`t play this game'
+            print 1 and 'Menu:'
+            cnt = 0
+            for b in mode:
+                cnt+=1
+                print cnt, b
+            c = input('choose the mode\n')
+            d = input('input first number\n')
+            e = input('input second number\n')
+            if c==1:print d+e
+            if c==2:print d-e
+            if c==3:print d*e
+            if c==4:print d/e
+        if a==2:
+            if asd!=2:
+                print 'sorry you need to buy this game'
+            print 2 and 'Menu:'
+            cnt = 0
+            for f in modes:
+                cnt+=1
+                print cnt,f
+            g = input('choose the mode\n')
+            h = 0    
+            print u"パソコン"
+            i = raw_input('computer\n')
+            if i=='computer':
+                h+=1
+                print 'next'
+            print u"オンラインゲーム"
+            j = raw_input('online game\n')
+            if j=='online game':
+                h+=1
+                print 'next'
+            print u"電車"
+            k = raw_input('densya\n')
+            if k=='densya':
+                h+=1
+            print h
+        if a==3:
+            if asd!=3:
+                print 'you need to buy this software'
+            l = input('u"体重を入力してください"\n')
+            m = input('u"身長を入力してください"\n')
+            n = m/l
+            print ('your DMI is...')
+            print n
+            if n<22: print('you are thin')
+            if n==22: print('normal')
+            if n>22: print('you are fat')
+        if a==4:
+            if asd!=4:
+                print 'you need to buy this software'
+            ans = 0
+            cnt = 0
+            for o in name:
+                cnt+=1
+                print cnt,o,price[cnt-1]
+            p = input('input number of the products you want\n')
+            q = input('how many?\n');
+            ans += price[p-1]*q
+            print 'total price is',ans,'yen'
+            r = input('customer paid\n')
+            s = r-ans
+            if s>0: print 'change is', y,'yen'
+            if s==0: print 'change is 0 yen'
+            if s<0: print 'you need to pay more money.please pay', y,'yen'
+        if a==5:
+            if asd!=5:
+                print 'you need to buy this software'
+            number=[1,2,3,4,5,6,7,8,9]
+            t = raw_input('input name of the product\n')
+            u = input('how many?\n')
+            v = input('price\n')
+            print t,u,v,'Yen'
+            ans+=number[u]*v
+            print 'total price is', v,'yen'
+            x = input('customer paid\n')
+            print x-v
+            y = x-v
+            if y>0: print 'change is',y,'yen'
+            if y==0: print 'change is 0 yen'
+            if y<0: print 'you need to pay more money.please pay',+y,'yen'
+f1 = Frame()
+f1.pack()
+f1.mainloop()

@@ -1,0 +1,51 @@
+import csv
+
+mode = ['Addition','Substraction','Multiplication','Division']
+
+filename = "save.csv"
+csvfile = (open(filename, 'w'))
+writecsv = csv.writer(csvfile)
+
+abc = ['login','sign up','exit']
+print 'Math Function game'
+print 'Menu:'
+cnt = 0
+for abcd in abc:
+    cnt+=1
+    print cnt,abcd
+m = input('choose from Menu')
+if m==1:
+    i = raw_input('ID\n')
+    h = input('Password\n')
+    o = [i,h]
+if m==2:
+        print 'input ID and Password'
+        q = raw_input('input ID\n')
+        r = input('Password\n')
+        writecsv.writerow([q])
+        writecsv.writerow([r])
+
+while (1):
+    if m==3:
+         break
+    if m==1:
+        if o!=csvfile:
+            print 'ID or Password is wrong.Byebye :=)'
+            break
+    cnt = 0   
+    for t in mode:
+        cnt+=1
+        print cnt,t
+    x = input('Choose the mode you want to play\n')
+    b = input('input the first number')
+    c = input('input the second number')
+    if x==1:print b+c
+    if x==2:print b-c
+    if x==3:print b*c
+    if x==4:print b/c
+    flag = raw_input('continue? y/n:')
+    if flag=='n':
+        break 
+csvfile.close()
+
+raw_input()

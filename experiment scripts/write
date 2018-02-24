@@ -1,0 +1,6 @@
+a = raw_input('ID')
+
+c = open('text.txt', 'w')
+c.write(a)
+c.close()
+

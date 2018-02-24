@@ -1,0 +1,4 @@
+import time
+print time.clock()
+3,2,1
+print 'bon'
