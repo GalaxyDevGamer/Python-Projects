@@ -1,0 +1,22 @@
+def zip_directory(zpath):
+    zip_targets = []
+    base = os.path.basename(zpath)
+    zipfilepath = os.path.abspath('%s.zip' % base)
+    for dirpath, dirnames, filenames in os.walk(zpath):
+        for filename in filenames:
+            filepath = os.path.join(dirpath, filename)
+            if filepath == zipfilepath:
+                continue
+            arc_name = os.path.relpath(filepath, os.path.dirname(zpath))
+            print filepath, arc_name
+            zip_targets.append((filepath, arc_name))
+        for dirname in dirnames:
+            filepath = os.path.join(dirpath, dirname)
+            arc_name = os.path.relpath(filepath, os.path.dirname(pathz))+os.path.sep
+            print filepath, arc_name
+            zip_targets.append((filepath, arc_name))
+    zip = zipfile.ZipFile(zipfilepath, 'w')
+    for filepath, name in zip_targets:
+        zip.write(filepath, name)
+    zip.close()
+    shutil.move(zipfilepath, "C:\Users\Galaxy\Desktop")
