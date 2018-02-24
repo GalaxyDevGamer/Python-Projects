@@ -1,0 +1,20 @@
+import csv
+
+filename = 'writing.csv'
+csvfile = (open(filename, 'w'))
+writecsv = csv.writer(csvfile)
+a = 'galaxy'
+b = '4869'
+f = [a,b]
+writecsv.writerow(f)
+csvfile.close()
+
+csvfile = (open(filename, 'r'))
+print csvfile
+e = 'galaxy'
+g = '4869'
+h = [e,g]
+for mark in csv.reader(csvfile):
+    if h==csvfile:
+        print 'true'
+run('experiment 1.csv')

@@ -1,0 +1,3 @@
+a = input('input number')
+b = input('input another number')
+print a*b

@@ -1,0 +1,1047 @@
+# -*- coding:utf-8-*-
+
+from Tkinter import *
+from time import *
+from tkFileDialog import *
+import tkFileDialog
+import Tkinter
+import Dialog
+import sys
+import os
+import sys, os.path
+
+
+root = Tk()
+
+path = '/home/desktop'
+
+w1 = None
+w2 = None
+w3 = None
+w4 = None
+
+op1 = BooleanVar()
+op1.set(False)
+op2 = BooleanVar()
+op2.set(False)
+op3 = BooleanVar()
+op3.set(False)
+op4 = BooleanVar()
+op4.set(False)
+op5 = BooleanVar()
+op5.set(False)
+op6 = BooleanVar()
+op6.set(False)
+op7 = BooleanVar()
+op7.set(False)
+op8 = BooleanVar()
+op8.set(False)
+op9 = BooleanVar()
+op9.set(False)
+op10 = BooleanVar()
+op10.set(False)
+op11 = BooleanVar()
+op11.set(False)
+op12 = BooleanVar()
+op12.set(False)
+op13 = BooleanVar()
+op13.set(False)
+op14 = BooleanVar()
+op14.set(False)
+op15 = BooleanVar()
+op15.set(False)
+op16 = BooleanVar()
+op16.set(False)
+op17 = BooleanVar()
+op17.set(False)
+op18 = BooleanVar()
+op18.set(False)
+op19 = BooleanVar()
+op19.set(False)
+op20 = BooleanVar()
+op20.set(False)
+op21 = BooleanVar()
+op21.set(False)
+op22 = BooleanVar()
+op22.set(False)
+op23 = BooleanVar()
+op23.set(False)
+op24 = BooleanVar()
+op24.set(False)
+op25 = BooleanVar()
+op25.set(False)
+op26 = BooleanVar()
+op26.set(False)
+op27 = BooleanVar()
+op27.set(False)
+op28 = BooleanVar()
+op28.set(False)
+op29 = BooleanVar()
+op29.set(False)
+buf = StringVar()
+buf.set('')
+buff = StringVar()
+buff.set('')
+buffe = StringVar()
+buffe.set('')
+buffers = StringVar()
+buffers.set('')
+names = StringVar()
+names.set('')
+pw = StringVar()
+pw.set('')
+mail = StringVar()
+mail.set('')
+actname = StringVar()
+actname.set('')
+actpw = StringVar()
+actpw.set('')
+actpwc = StringVar()
+actpwc.set('')
+
+ans = 0
+
+osnam = 'Galaxy-OS Universe'
+f0 = Frame(root)
+buttons = []
+
+def sleep():
+    global w3
+    w3 = Toplevel()
+    Label(w3, text = u'作業中でもスリープモード（ロック画面）に入ってしまうのでご注意ください').pack()
+    Label(w3, text = u'設定はホームから一度ロック画面に戻らないと適用されません').pack()
+    Label(w3, text = u'放置すると無限にウィンドウが増え続けます').pack()
+    f = LabelFrame(w3)
+    Checkbutton(f, text = u'1分', variable = op24, command = w3.destroy).pack()
+    Checkbutton(f, text = u'3分', variable = op25, command = w3.destroy).pack()
+    Checkbutton(f, text = u'5分', variable = op26, command = w3.destroy).pack()
+    Checkbutton(f, text = u'10分', variable = op27, command = w3.destroy).pack()
+    Checkbutton(f, text = u'30分', variable = op22, command = w3.destroy).pack()
+    Checkbutton(f, text = u'60分', variable = op21, command = w3.destroy).pack()
+    Checkbutton(f, text = u'90分', variable = op20, command = w3.destroy).pack()
+    Checkbutton(f, text = u'120分', variable = op19, command = w3.destroy).pack()
+    buttons.append(Checkbutton)
+    f.pack(padx = 5, pady = 5)
+    w2.destroy()
+def set():
+    global w2
+    w2 = Toplevel()
+    Button(w2, text = u'スリープモードをオンにする', command = sleep).pack()
+if op29.get():
+    Button.configure(state = new_state)
+    Button.new_state = 'disabled'
+def hide(n):
+    return lambda : buttons[n].lower()
+def ru():
+    root.lower()
+    unlock()
+    op28.set(True)
+    if op19.get():
+        root.after(12000000, ru)
+    if op20.get():
+        root.after(900000, ru)
+    if op21.get():
+        root.after(6000000, ru)
+    if op22.get():
+        root.after(1800000, ru)
+    if op24.get():
+        root.after(60000, ru)
+    if op25.get():
+        root.after(180000, ru)
+    if op26.get():
+        root.after(300000, ru)
+    if op27.get():
+        root.after(600000, ru)
+def idc4():
+    id4 = open('id4.dat', 'w')
+    id4.write(actname.get())
+    id4.close
+    w4.destroy()
+def idc3():
+    id3 = open('id3.dat', 'w')
+    id3.write(actname.get())
+    id3.close
+    w4.destroy()
+def idc2():
+    id2 = open('id2.dat', 'w')
+    id2.write(actname.get())
+    id2.close
+    w4.destroy()
+def idc():
+    fff = open('id.dat', 'w')
+    fff.write(actname.get())
+    fff.close
+    w4.destroy()
+def cn4():
+    global w4
+    w4 = Toplevel()
+    rpw = open('pw4.dat', 'r')
+    for data8 in rpw:
+        data8 == actpw
+    if actpwc.get() == data8:
+        Label(w4, text = u'新しいユーザー名の入力').pack()
+        actname.set('')
+        Entry(w4, textvariable = actname).pack()
+        Button(w4, text = u'変更する', command = idc4).pack()
+        w3.destroy()
+def cn3():
+    global w4
+    w4 = Toplevel()
+    rpw = open('pw3.dat', 'r')
+    for data6 in rpw:
+        data6 == actpw
+    if actpwc.get() == data6:
+        Label(w4, text = u'新しいユーザー名の入力').pack()
+        actname.set('')
+        Entry(w4, textvariable = actname).pack()
+        Button(w4, text = u'変更する', command = idc3).pack()
+        w3.destroy()
+def cn2():
+    global w4
+    w4 = Toplevel()
+    rpw = open('pw2.dat', 'r')
+    for data4 in rpw:
+        data4 == actpw
+    if actpwc.get() == data4:
+        Label(w4, text = u'新しいユーザー名の入力').pack()
+        actname.set('')
+        Entry(w4, textvariable = actname).pack()
+        Button(w4, text = u'変更する', command = idc2).pack()
+        w3.destroy()
+def cn():
+    global w4
+    w4 = Toplevel()
+    rpw = open('pw.dat', 'r')
+    for data1 in rpw:
+        data1 == actpw
+    if actpwc.get() == data1:
+        Label(w4, text = u'新しいユーザー名の入力').pack()
+        actname.set('')
+        Entry(w4, textvariable = actname).pack()
+        Button(w4, text = u'変更する', command = idc).pack()
+        w3.destroy()
+def pc4():
+    global w3
+    w3 = Toplevel()
+    actpwc.set('')
+    ffo = open('id4.dat', 'r')
+    for data7 in ffo:
+        data7 == actname
+    Label(w3, text = u'確認のためパスワードを入力').pack()
+    Label(w3, text = '%s' % data7).pack()
+    Entry(w3, textvariable = actpwc, show = '*').pack()
+    Button(w3, text = u'次へ', command = cn4).pack()
+    w2.destroy()
+def pc3():
+    global w3
+    w3 = Toplevel()
+    actpwc.set('')
+    ffo = open('id3.dat', 'r')
+    for data5 in ffo:
+        data5 == actname
+    Label(w3, text = u'確認のためパスワードを入力').pack()
+    Label(w3, text = '%s' % data5).pack()
+    Entry(w3, textvariable = actpwc, show = '*').pack()
+    Button(w3, text = u'次へ', command = cn3).pack()
+    w2.destroy()
+def pc2():
+    global w3
+    w3 = Toplevel()
+    actpwc.set('')
+    ffo = open('id2.dat', 'r')
+    for data3 in ffo:
+        data3 == data3
+    Label(w3, text = u'確認のためパスワードを入力').pack()
+    Label(w3, text = '%s' % data3).pack()
+    Entry(w3, textvariable = actpwc, show = '*').pack()
+    Button(w3, text = u'次へ', command = cn2).pack()
+    w2.destroy()
+def pc():
+    global w3
+    w3 = Toplevel()
+    actpwc.set('')
+    ffo = open('id.dat', 'r')
+    for data2 in ffo:
+        data2 == actname
+    Label(w3, text = u'確認のためパスワードを入力').pack()
+    Label(w3, text = '%s' % data2).pack()
+    Entry(w3, textvariable = actpwc, show = '*').pack()
+    Button(w3, text = u'次へ', command = cn).pack()
+    w2.destroy()
+def done4():
+    if actpw.get() == actpwc.get():
+        wpw = open('pw4.dat', 'w')
+        wpw.write(actpw.get())
+        wpw.close
+        w4.destroy()
+    else:
+        Message(w4, text = u'パスワードが違います').pack()
+        pw.set('')
+        actpwc.set('')
+def done3():
+    if actpw.get() == actpwc.get():
+        wpw = open('pw3.dat', 'w')
+        wpw.write(actpw.get())
+        wpw.close
+        w4.destroy()
+    else:
+        Message(w4, text = u'パスワードが違います').pack()
+        pw.set('')
+        actpwc.set('')
+def done2():
+    if actpw.get() == actpwc.get():
+        wpw = open('pw2.dat', 'w')
+        wpw.write(actpw.get())
+        wpw.close
+        w4.destroy()
+    else:
+        Message(w4, text = u'パスワードが違います').pack()
+        pw.set('')
+        actpwc.set('')
+def done():
+    if actpw.get() == actpwc.get():
+        wpw = open('pw.dat', 'w')
+        wpw.write(actpw.get())
+        wpw.close
+        w4.destroy()
+    else:
+        Message(w4, text = u'パスワードが違います').pack()
+        pw.set('')
+        actpwc.set('')
+def cna4():
+    global w4
+    w4 = Toplevel()
+    rpw = open('pw4.dat', 'r')
+    for data8 in rpw:
+        data8 == actpw
+    if actpwc.get() == data8:
+        actpwc.set('')
+        actpw.set('')
+        Label(w4, text = u'新しいパスワードを入力').pack()
+        Entry(w4, textvariable = actpw, show = '*').pack()
+        Label(w4, text = u'確認のためもう一度入力').pack()
+        Entry(w4, textvariable = actpwc, show = '*').pack()
+        Button(w4, text = u'変更する', command = done4).pack()
+        w3.destroy()
+    else:
+        Message(w3, text = u'パスワードが違います').pack()
+        actpwc.set('')
+def cna3():
+    global w4
+    w4 = Toplevel()
+    rpw = open('pw3.dat', 'r')
+    for data6 in rpw:
+        data6 == actpw
+    if actpwc.get() == data6:
+        actpwc.set('')
+        actpw.set('')
+        Label(w4, text = u'新しいパスワードを入力').pack()
+        Entry(w4, textvariable = actpw, show = '*').pack()
+        Label(w4, text = u'確認のためもう一度入力').pack()
+        Entry(w4, textvariable = actpwc, show = '*').pack()
+        Button(w4, text = u'変更する', command = done3).pack()
+        w3.destroy()
+    else:
+        Message(w3, text = u'パスワードが違います').pack()
+        actpwc.set('')
+def cna2():
+    global w4
+    w4 = Toplevel()
+    rpw = open('pw2.dat', 'r')
+    for data4 in rpw:
+        data4 == actpw
+    if actpwc.get() == data4:
+        actpwc.set('')
+        actpw.set('')
+        Label(w4, text = u'新しいパスワードを入力').pack()
+        Entry(w4, textvariable = actpw, show = '*').pack()
+        Label(w4, text = u'確認のためもう一度入力').pack()
+        Entry(w4, textvariable = actpwc, show = '*').pack()
+        Button(w4, text = u'変更する', command = done2).pack()
+        w3.destroy()
+    else:
+        Message(w3, text = u'パスワードが違います').pack()
+        actpwc.set('')
+def cna():
+    global w4
+    w4 = Toplevel()
+    rpw = open('pw.dat', 'r')
+    for data1 in rpw:
+        data1 == actpw
+    if actpwc.get() == data1:
+        actpwc.set('')
+        actpw.set('')
+        Label(w4, text = u'新しいパスワードを入力').pack()
+        Entry(w4, textvariable = actpw, show = '*').pack()
+        Label(w4, text = u'確認のためもう一度入力').pack()
+        Entry(w4, textvariable = actpwc, show = '*').pack()
+        Button(w4, text = u'変更する', command = done).pack()
+        w3.destroy()
+    else:
+        Message(w3, text = u'パスワードが違います').pack()
+        actpwc.set('')
+def pca4():
+    global w3
+    w3 = Toplevel()
+    actpwc.set('')
+    Label(w3, text = u'古いパスワードを入力').pack()
+    Entry(w3, textvariable = actpwc, show = '*').pack()
+    Button(w3, text = u'次へ', command = cna4).pack()
+    w2.destroy()
+def pca3():
+    global w3
+    w3 = Toplevel()
+    actpwc.set('')
+    Label(w3, text = u'古いパスワードを入力').pack()
+    Entry(w3, textvariable = actpwc, show = '*').pack()
+    Button(w3, text = u'次へ', command = cna3).pack()
+    w2.destroy()
+def pca2():
+    global w3
+    w3 = Toplevel()
+    actpwc.set('')
+    Label(w3, text = u'古いパスワードを入力').pack()
+    Entry(w3, textvariable = actpwc, show = '*').pack()
+    Button(w3, text = u'次へ', command = cna2).pack()
+    w2.destroy()
+def pca():
+    global w3
+    w3 = Toplevel()
+    actpwc.set('')
+    Label(w3, text = u'古いパスワードを入力').pack()
+    Entry(w3, textvariable = actpwc, show = '*').pack()
+    Button(w3, text = u'次へ', command = cna).pack()
+    w2.destroy()
+def account4():
+    global w2
+    w2 = Toplevel()
+    Button(w2, text = u'アカウント名を変更する', command = pc4).pack()
+    Label(w2, text = u'＊ホーム画面のユーザー名はプログラム').pack()
+    Label(w2, text = u'を再起動するまで適用されません').pack()
+    Button(w2, text = u'パスワードを変更する', command = pca4).pack()
+def account3():
+    global w2
+    w2 = Toplevel()
+    Button(w2, text = u'アカウント名を変更する', command = pc3).pack()
+    Label(w2, text = u'＊ホーム画面のユーザー名はプログラム').pack()
+    Label(w2, text = u'を再起動するまで適用されません').pack()
+    Button(w2, text = u'パスワードを変更する', command = pca3).pack()
+def account2():
+    global w2
+    w2 = Toplevel()
+    Button(w2, text = u'アカウント名を変更する', command = pc2).pack()
+    Label(w2, text = u'＊ホーム画面のユーザー名はプログラム').pack()
+    Label(w2, text = u'を再起動するまで適用されません').pack()
+    Button(w2, text = u'パスワードを変更する', command = pca2).pack()
+def account():
+    global w2
+    w2 = Toplevel()
+    Button(w2, text = u'アカウント名を変更する', command = pc).pack()
+    Label(w2, text = u'＊ホーム画面のユーザー名はプログラム').pack()
+    Label(w2, text = u'を再起動するまで適用されません').pack()
+    Button(w2, text = u'パスワードを変更する', command = pca).pack()
+def calc(event):
+    f5 = Frame(root)
+    lb = Listbox(f5)
+    expr = mail.get()
+    lb.insert('end',expr)
+    lb.see('end')
+    mail.set('')
+def loadpic():
+    global picdata, path
+    fn = askopenfilename(filetypes = [('All Files', '*'),
+                                      ('JPG Files', '.jpg'),
+                                      ('PPM FIles', '.ppm')],initialdir = path)
+    if fn != '':
+            path = os.path.dirname(fn)
+            picdata = Tkinter.PhotoImage(file = fn)
+            label.configure(image = picdata)
+def market():
+    global w1
+    w1 = Toplevel()
+    m = 0
+    f1 = Frame(w1)
+    f2 = Frame(w1)
+    f3 = Frame(w1)
+    ffo = open('id.dat', 'r')
+    for data2 in ffo:
+        actname = data2
+    Label(f1, text = 'Galaxy Store').pack(side = LEFT)
+    Label(f2, text = '%s' % data2).pack(side = LEFT)
+    Label(f2, text = u'クレジット %d円' % m).packz(side = RIGHT)
+    Label(f3, text = u'アプリ一覧：').pack(side = LEFT)
+    f1.pack()
+    f2.pack()
+    f3.pack()
+def timer():
+    global w1
+    w1 = Toplevel()
+    Label(w1, text = u'タイマー').pack()
+def sum():
+    value = eval(buff.get())
+    buffe.set(str(value))
+def regc():
+    global w2
+    w2 = Toplevel()
+    sum()
+    Label(w2, text = u'購入商品:').pack()
+    Label(w2, textvariable = buffers).pack()
+    Label(w2, textvariable = buff).pack()
+    Label(w2, text = u'合計:').pack()
+    Label(w2, textvariable = buffe).pack()
+    Button(w2, text = u'戻る', command = w2.destroy).pack()
+def erase():
+    buffers.set('')
+    buff.set('')
+    buffe.set('')
+def regi():
+    global w1
+    w1 = Toplevel()
+    Label(w1, text = u'会計ソフト').pack()
+    Label(w1, text = u'商品名:').pack()
+    Entry(w1, textvariable = buffers).pack()
+    Label(w1, text = u'値段と数量').pack()
+    Entry(w1, textvariable = buff).pack()
+    Button(w1, text = u'計算', command = regc).pack()
+    Button(w1, text = u'初期化', command = erase).pack()
+def home4():
+    f4 = Frame(root)
+    f5 = Frame(root)
+    f6 = Frame(root)
+    f7 = Frame(root)
+    ver = 1
+    vers = 1
+    ffo = open('id4.dat', 'r')
+    for data7 in ffo:
+        actname = data7 
+    nam = 'Galaxy-OS Universe'
+    Label(root, text = u'%s %d.%d' % (nam, ver, vers)).pack()
+    picdata = PhotoImage(width = 64, height = 64)
+    label1 = Label(f0, image = picdata).pack()
+    Button(f0, text = 'Load', command = loadpic).pack()
+    Label(f0, text = u'ユーザー:').pack(in_ = f0, side = LEFT)
+    Label(f0, text = '%s' % data7).pack(in_ = f0, side = LEFT)
+    f0.pack(fill = BOTH)
+    Button(f4, text = 'A', width = 5, height = 2, command = account4).pack(side = LEFT)
+    Label(f5, text = u'アカウント').pack(side = LEFT)
+    Button(f4, text = 'T', width = 5, height = 2, command = timer).pack(side = LEFT)
+    Label(f5, text = u'タイマー').pack(side = LEFT)
+    Button(f4, text = u'会計', width = 5, height = 2, command = regi).pack(side = RIGHT)
+    Label(f5, text = u'会計ソフト').pack(side = RIGHT)
+    Button(f4, text = 'M', width = 5, height = 2, command = market).pack(side = RIGHT)
+    Label(f5, text = u'マーケット').pack(side = RIGHT) 
+    Button(f6, text = u'†', width = 5, height = 2, command = set).pack(side = LEFT)
+    Label(f7, text = u'設定').pack(side = LEFT)
+    Button(f6, text = 'L', width = 5, height = 2, command = ru).pack(side = RIGHT)
+    Label(f7, text = u'ロック画面に戻る').pack(side = RIGHT)
+    f4.pack()
+    f5.pack()
+    f6.pack()
+    f7.pack()
+    time()
+def home3():
+    f4 = Frame(root)
+    f5 = Frame(root)
+    f6 = Frame(root)
+    f7 = Frame(root)
+    ver = 1
+    vers = 1
+    ffo = open('id3.dat', 'r')
+    for data5 in ffo:
+        actname = data5 
+    nam = 'Galaxy-OS Universe'
+    Label(root, text = u'%s %d.%d.%d' % (nam, ver, vers)).pack()
+    picdata = PhotoImage(width = 64, height = 64)
+    label1 = Label(f0, image = picdata).pack()
+    Button(f0, text = 'Load', command = loadpic).pack()
+    Label(f0, text = u'ユーザー:').pack(in_ = f0, side = LEFT)
+    Label(f0, text = '%s' % data5).pack(in_ = f0, side = LEFT)
+    f0.pack(fill = BOTH)
+    Button(f4, text = 'A', width = 5, height = 2, command = account3).pack(side = LEFT)
+    Label(f5, text = u'アカウント').pack(side = LEFT)
+    Button(f4, text = 'T', width = 5, height = 2, command = timer).pack(side = LEFT)
+    Label(f5, text = u'タイマー').pack(side = LEFT)
+    Button(f4, text = u'会計', width = 5, height = 2, command = regi).pack(side = RIGHT)
+    Label(f5, text = u'会計ソフト').pack(side = RIGHT)
+    Button(f4, text = 'M', width = 5, height = 2, command = market).pack(side = RIGHT)
+    Label(f5, text = u'マーケット').pack(side = RIGHT) 
+    Button(f6, text = u'†', width = 5, height = 2, command = set).pack(side = LEFT)
+    Label(f7, text = u'設定').pack(side = LEFT)
+    Button(f6, text = 'L', width = 5, height = 2, command = ru).pack(side = RIGHT)
+    Label(f7, text = u'ロック画面に戻る').pack(side = RIGHT)
+    f4.pack()
+    f5.pack()
+    f6.pack()
+    f7.pack()
+    time()
+def home2():
+    f4 = Frame(root)
+    f5 = Frame(root)
+    f6 = Frame(root)
+    f7 = Frame(root)
+    ver = 1
+    vers = 1
+    ffo = open('id2.dat', 'r')
+    for data3 in ffo:
+        actname = data3 
+    nam = 'Galaxy-OS Universe'
+    Label(root, text = u'%s %d.%d' % (nam, ver, vers)).pack()
+    picdata = PhotoImage(width = 64, height = 64)
+    label1 = Label(f0, image = picdata).pack()
+    Button(f0, text = 'Load', command = loadpic).pack()
+    Label(f0, text = u'ユーザー:').pack(in_ = f0, side = LEFT)
+    Label(f0, text = '%s' % data3).pack(in_ = f0, side = LEFT)
+    f0.pack(fill = BOTH)
+    Button(f4, text = 'A', width = 5, height = 2, command = account2).pack(side = LEFT)
+    Label(f5, text = u'アカウント').pack(side = LEFT)
+    Button(f4, text = 'T', width = 5, height = 2, command = timer).pack(side = LEFT)
+    Label(f5, text = u'タイマー').pack(side = LEFT)
+    Button(f4, text = u'会計', width = 5, height = 2, command = regi).pack(side = RIGHT)
+    Label(f5, text = u'会計ソフト').pack(side = RIGHT)
+    Button(f4, text = 'M', width = 5, height = 2, command = market).pack(side = RIGHT)
+    Label(f5, text = u'マーケット').pack(side = RIGHT) 
+    Button(f6, text = u'†', width = 5, height = 2, command = set).pack(side = LEFT)
+    Label(f7, text = u'設定').pack(side = LEFT)
+    Button(f6, text = 'L', width = 5, height = 2, command = ru).pack(side = RIGHT)
+    Label(f7, text = u'ロック画面に戻る').pack(side = RIGHT)
+    f4.pack()
+    f5.pack()
+    f6.pack()
+    f7.pack()
+    time()
+def home():
+    f4 = Frame(root)
+    f5 = Frame(root)
+    f6 = Frame(root)
+    f7 = Frame(root)
+    ver = 1
+    vers = 1
+    ffo = open('id.dat', 'r')
+    for data2 in ffo:
+        actname = data2 
+    nam = 'Galaxy-OS Universe'
+    Label(root, text = u'%s %d.%d' % (nam, ver, vers)).pack()
+    picdata = PhotoImage(width = 64, height = 64)
+    label1 = Label(f0, image = picdata).pack()
+    Button(f0, text = 'Load', command = loadpic).pack()
+    Label(f0, text = u'ユーザー:').pack(in_ = f0, side = LEFT)
+    Label(f0, text = '%s' % data2).pack(in_ = f0, side = LEFT)
+    f0.pack(fill = BOTH)
+    Button(f4, text = 'A', width = 5, height = 2, command = account).pack(side = LEFT)
+    Label(f5, text = u'アカウント').pack(side = LEFT)
+    Button(f4, text = 'T', width = 5, height = 2, command = timer).pack(side = LEFT)
+    Label(f5, text = u'タイマー').pack(side = LEFT)
+    Button(f4, text = u'会計', width = 5, height = 2, command = regi).pack(side = RIGHT)
+    Label(f5, text = u'会計ソフト').pack(side = RIGHT)
+    Button(f4, text = 'M', width = 5, height = 2, command = market).pack(side = RIGHT)
+    Label(f5, text = u'マーケット').pack(side = RIGHT) 
+    Button(f6, text = u'†', width = 5, height = 2, command = set).pack(side = LEFT)
+    Label(f7, text = u'設定').pack(side = LEFT)
+    Button(f6, text = 'L', width = 5, height = 2, command = ru).pack(side = RIGHT)
+    Label(f7, text = u'ロック画面に戻る').pack(side = RIGHT)
+    f4.pack()
+    f5.pack()
+    f6.pack()
+    f7.pack()
+    time()
+def pok4():
+    global w3
+    ffo = open('pw4.dat', 'r')
+    for data8 in ffo:
+        actpw == data8
+    if actpwc.get() == data8:
+        if op28.get():
+            w2.destroy()
+            w3.destroy()
+            root.lift()
+            actpwc.set('')
+        else:
+            w2.destroy()
+            w3.destroy()
+            home4()
+            actpwc.set('')
+    else:
+        Message(w2, text = u'パスワードが違います').pack()
+        actpwc.set('')
+def pok3():
+    global w3
+    ffo = open('pw3.dat', 'r')
+    for data6 in ffo:
+        actpw == data6
+    if actpwc.get() == data6:
+        if op28.get():
+            w2.destroy()
+            w3.destroy()
+            root.lift()
+            actpwc.set('')
+        else:
+            w2.destroy()
+            w3.destroy()
+            home3()
+            actpwc.set('')
+    else:
+        Message(w2, text = u'パスワードが違います').pack()
+        actpwc.set('')
+def pok2():
+    global w3
+    ffo = open('pw2.dat', 'r')
+    for data4 in ffo:
+        actpw == data4
+    if actpwc.get() == data4:
+        if op28.get():
+            w2.destroy()
+            w3.destroy()
+            root.lift()
+            actpwc.set('')
+        else:
+            w2.destroy()
+            w3.destroy()
+            home2()
+            actpwc.set('')
+    else:
+        Message(w2, text = u'パスワードが違います').pack()
+        actpwc.set('')
+def pok():
+    ffo = open('pw.dat', 'r')
+    for data1 in ffo:
+        actpw == data1
+    if actpwc.get() == data1:
+        if op28.get():
+            w2.destroy()
+            w3.destroy()
+            root.lift()
+            actpwc.set('')
+        else:
+            w2.destroy()
+            w3.destroy()
+            home()
+            actpwc.set('')
+    else:
+        Message(w2, text = u'パスワードが違います').pack()
+        actpwc.set('')
+def homes():
+    w2.destroy()
+def hometo():
+    root.lift()
+    w2.destroy()
+def op3gc():
+    global w2
+    w2 = Toplevel()
+    rid = open('id.dat', 'r')
+    for data2 in rid:
+        data2 == data2
+    actpwc.set('')
+    w2.wm_attributes("-topmost", 1)
+    Label(w2, text = '%s' % osnam).pack()
+    Label(w2, text = u'ユーザー:').pack()
+    Label(w2, text = '%s' % data2).pack()
+    e = Entry(w2, textvariable = actpwc, show = '*').pack()
+    Button(w2, text = u'決定', command = pok).pack()
+    w1.destroy()
+def op4gc():
+    global w2
+    w2 = Toplevel() 
+    id2 = open('id2.dat', 'r')
+    for data3 in id2:
+        data3 == data3
+    actpwc.set('')
+    w2.wm_attributes("-topmost", 1)
+    Label(w2, text = '%s' % osnam).pack()
+    Label(w2, text = u'ユーザー:').pack()
+    Label(w2, text = '%s' % data3).pack()
+    Entry(w2, textvariable = actpwc, show = '*').pack()
+    Button(w2, text = u'決定', command = pok2).pack()
+    w1.destroy()
+def op5gc():
+    global w2
+    w2 = Toplevel() 
+    id3 = open('id3.dat', 'r')
+    for data5 in id3:
+        data5 == data5
+    actpwc.set('')
+    w2.wm_attributes("-topmost", 1)
+    Label(w2, text = '%s' % osnam).pack()
+    Label(w2, text = u'ユーザー:').pack()
+    Label(w2, text = '%s' % data5).pack()
+    Entry(w2, textvariable = actpwc, show = '*').pack()
+    Button(w2, text = u'決定', command = pok3).pack()
+    w1.destroy()
+def op6gc():
+    global w2
+    w2 = Toplevel() 
+    id4 = open('id4.dat', 'r')
+    for data7 in id4:
+        data7 == data7
+    actpwc.set('')
+    w2.wm_attributes("-topmost", 1)
+    Label(w2, text = '%s' % osnam).pack()
+    Label(w2, text = u'ユーザー:').pack()
+    Label(w2, text = '%s' % data7).pack()
+    Entry(w2, textvariable = actpwc, show = '*').pack()
+    Button(w2, text = u'決定', command = pok4).pack()
+    w1.destroy()
+def acts():
+    global w3
+    w3  = Toplevel()
+    f1 = Frame(w3)
+    rid = open('id.dat', 'r')
+    for data2 in rid:
+        data2 == data2
+    id2 = open('id2.dat', 'r')
+    for data3 in id2:
+        data3 == data3
+    id3 = open('id3.dat', 'r')
+    for data5 in id3:
+        data5 == data5
+    id4 = open('id4.dat', 'r')
+    for data7 in id4:
+        data7 == data7
+    Label(w3, text = '%s' % osnam).pack()
+    Label(w3, text = u'ユーザー:').pack()
+    Button(f1, text = '%s' % data7, command = op6g).pack(side = RIGHT)
+    Button(f1, text = '%s' % data5, command = op5g).pack(side = RIGHT)
+    Button(f1, text = '%s' % data3, command = op4g).pack(side = RIGHT)
+    Button(f1, text = '%s' % data2, command = op3g).pack(side = RIGHT)
+    f1.pack()
+def op3g():
+    global w1
+    w1 = Toplevel()
+    f1 = Frame(w1)
+    f2 = Frame(w1)
+    f3 = Frame(w1)
+    f4 = Frame(w1)
+    w1.wm_attributes("-topmost", 1)
+    rpw = open('id.dat', 'r')
+    for data2 in rpw:
+        data2 == data2
+    if data2 == 'user1':
+        Label(w1, text = '%s' % osnam).pack()
+        Label(w1, text = u'アカウント作成').pack()
+        Entry(f1, textvariable = actname).pack(side = RIGHT)
+        Label(f1, text = u'アカウント名').pack(side = LEFT)
+        Entry(f2, textvariable = actpw, show = '*').pack(side = RIGHT)
+        Label(f2, text = u'パスワード').pack(side = LEFT)
+        Entry(f3, textvariable = actpwc, show = '*').pack(side = RIGHT)
+        Label(f3, text = u'確認のためもう一度入力').pack(side = LEFT)
+        Button(f4, text = u'作成', command = z).pack(side = LEFT)
+        f1.pack()
+        f2.pack()
+        f3.pack()
+        f4.pack()
+        op3.set(True)
+    else:
+        op3gc()
+    time()
+    root.lower()
+def op4g():
+    global w1
+    w1 = Toplevel()
+    f1 = Frame(w1)
+    f2 = Frame(w1)
+    f3 = Frame(w1)
+    f4 = Frame(w1)
+    w1.wm_attributes("-topmost", 1)
+    rpw2 = open('id2.dat', 'r')
+    for data3 in rpw2:
+        data3 == data3
+    if data3 == 'user2':
+        Label(w1, text = '%s' % osnam).pack()
+        Label(w1, text = u'アカウント作成').pack()
+        Entry(f1, textvariable = actname).pack(side = RIGHT)
+        Label(f1, text = u'アカウント名').pack(side = LEFT)
+        Entry(f2, textvariable = actpw, show = '*').pack(side = RIGHT)
+        Label(f2, text = u'パスワード').pack(side = LEFT)
+        Entry(f3, textvariable = actpwc, show = '*').pack(side = RIGHT)
+        Label(f3, text = u'確認のためもう一度入力').pack(side = LEFT)
+        Button(f4, text = u'作成', command = z).pack(side = LEFT)
+        f1.pack()
+        f2.pack()
+        f3.pack()
+        f4.pack()
+        op4.set(True)
+    else:
+        op4gc()
+    time()
+    root.lower()
+def op5g():
+    global w1
+    w1 = Toplevel()
+    f1 = Frame(w1)
+    f2 = Frame(w1)
+    f3 = Frame(w1)
+    f4 = Frame(w1)
+    w1.wm_attributes("-topmost", 1)
+    rpw3 = open('id3.dat','r')
+    for data5 in rpw3:
+        data5 == data5
+    if data5 == 'user3':
+        Label(w1, text = '%s' % osnam).pack()
+        Label(w1, text = u'アカウント作成').pack()
+        Entry(f1, textvariable = actname).pack(side = RIGHT)
+        Label(f1, text = u'アカウント名').pack(side = LEFT)
+        Entry(f2, textvariable = actpw, show = '*').pack(side = RIGHT)
+        Label(f2, text = u'パスワード').pack(side = LEFT)
+        Entry(f3, textvariable = actpwc, show = '*').pack(side = RIGHT)
+        Label(f3, text = u'確認のためもう一度入力').pack(side = LEFT)
+        Button(f4, text = u'作成', command = z).pack(side = LEFT)
+        f1.pack()
+        f2.pack()
+        f3.pack()
+        f4.pack()
+        op5.set(True)
+    else:
+        op5gc()
+    time()
+    root.lower()
+def op6g():
+    global w1
+    w1 = Toplevel()
+    f1 = Frame(w1)
+    f2 = Frame(w1)
+    f3 = Frame(w1)
+    f4 = Frame(w1)
+    w1.wm_attributes("-topmost", 1)
+    rpw4 = open('id4.dat', 'r')
+    for data7 in rpw4:
+        data7 == data7
+    if data7 == 'user4':
+        Label(w1, text = '%s' % osnam).pack()
+        Label(w1, text = u'アカウント作成').pack()
+        Entry(f1, textvariable = actname).pack(side = RIGHT)
+        Label(f1, text = u'アカウント名').pack(side = LEFT)
+        Entry(f2, textvariable = actpw, show = '*').pack(side = RIGHT)
+        Label(f2, text = u'パスワード').pack(side = LEFT)
+        Entry(f3, textvariable = actpwc, show = '*').pack(side = RIGHT)
+        Label(f3, text = u'確認のためもう一度入力').pack(side = LEFT)
+        Button(f4, text = u'作成', command = z).pack(side = LEFT)
+        f1.pack()
+        f2.pack()
+        f3.pack()
+        f4.pack()
+        op6.set(True)
+    else:
+        op6gc()
+    f1.pack()
+    f2.pack()
+    f3.pack()
+    f4.pack()
+    time()
+    root.lower()
+def time():
+    buf.set(strftime('%H:%M:%S'))
+    root.after(1000, time)
+def unlock():
+    global w1
+    w1 = Toplevel()
+    ffo = open('id.dat', 'r')
+    for data2 in ffo:
+        data2 == actname
+    actpwc.set('')
+    w1.wm_attributes("-topmost", 1)
+    w1.focus()
+    Label(w1, text = '%s' % osnam).pack()
+    Label(w1, text = '%s' % data2).pack()
+    Entry(w1, textvariable = actpwc, show = '*').pack()
+    Label(w1, textvariable = buf).pack()
+    Button(w1, text = u'ログイン', command = w1.destroy).pack()
+def myp():
+    print actname.get()
+    print actpw.get()
+    fff = open('id.dat', 'w')
+    wpw = open('pw.dat', 'w')
+    fff.write(actname.get())
+    wpw.write(actpw.get())
+    wpw.close
+    fff.close
+def myp2():
+    print actname.get()
+    print actpw.get()
+    id2 = open('id2.dat', 'w')
+    pw2 = open('pw2.dat', 'w')
+    id2.write(actname.get())
+    pw2.write(actpw.get())
+    id2.close
+    pw2.close
+def myp3():
+    print actname.get()
+    print actpw.get()
+    id3 = open('id3.dat', 'w')
+    pw3 = open('pw3.dat', 'w')
+    id3.write(actname.get())
+    pw3.write(actpw.get())
+    id3.close
+    pw3.close
+def myp4():
+    print actname.get()
+    print actpw.get()
+    id4 = open('id4.dat', 'w')
+    pw4 = open('pw4.dat', 'w')
+    id4.write(actname.get())
+    pw4.write(actpw.get())
+    id4.close
+    pw4.close
+def z():
+    if actname.get():
+        if actpw.get() == actpwc.get():
+            if op3.get():
+                myp()
+                home()
+                w1.destroy()
+                actname.set('')
+                actpw.set('')
+            if op4.get():
+                myp2()
+                home2()
+                w1.destroy()
+                actname.set('')
+                actpw.set('')
+            if op5.get():
+                myp3()
+                home3()
+                w1.destroy()
+                actname.set('')
+                actpw.set('')
+            if op6.get():
+                myp4()
+                home4()
+                w1.destroy()
+                actname.set('')
+                actpw.set('')
+    else:
+        Message(w1, text = u'アカウントは４つまでしか作れません').pack()
+def unloc():
+    if names.get():
+        if pw.get():
+            if pw.get() == buffers.get():
+                myp()
+                unlocks()
+                w3.destroy()
+        else:
+            Message(w3, text = u'ユーザー名が入力されていないかパスワードが違います').pack()
+            pw.set('')
+            buffers.set('')
+def cs():
+    global w3
+    w3 = Toplevel()
+    f1 = Frame(w3)
+    f2 = Frame(w3)
+    f3 = Frame(w3)
+    w3.wm_attributes("-topmost", 1)
+    w3.focus()
+    Label(w3, text = u'ユーザー登録').pack()
+    Entry(f1, textvariable = names).pack(side = RIGHT)
+    Label(f1, text = u'ID:').pack(side = LEFT)
+    Entry(f2, textvariable = pw, show = '*').pack(side = RIGHT)
+    Label(f2, text = u'パスワード:').pack(side = LEFT)
+    Entry(f3, textvariable = buffers, show = '*').pack(side = RIGHT)
+    Label(f3, text = u'確認のためもう１度入力').pack(side = LEFT)
+    f1.pack()
+    f2.pack()
+    f3.pack()
+    Button(w3, text = u'決定', command = unloc).pack()
+    time()
+    w2.destroy()
+root.after(10, acts)
+
+
+root.mainloop()

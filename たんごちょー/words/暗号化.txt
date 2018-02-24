@@ -1,0 +1,51 @@
+真っ先に設定。これがないと何も始まらない
+key = Crypto.Cipher.DES.new("ABCDEFGH", Crypto.Cipher.DES.MODE_ECB)
+そしたら・・・
+たとえばコレ←← じゃがじゃがじゃがじゃがじゃーーん！！
+てってれてっててー　暗号化！ by 青狸
+string = key.encrypt(u"たとえばコレ" + '  ')
+これで上を出力すると(print string)・・・恐らく・・・
+くぁwせｄｒｆｔｇｙふじこｌｐ；＠：「」
+と、訳の分からん文字になる。　ででーん↓
+じゃあどうする？？？　アイフルしよう！！
+複合するしかないでしょ！？　でしょ！？
+strings = key.decrypto(string)
+print strings
+で「いつやるか？　今でしょ！！！」by 林修　　になる。
+
+lsdajhfksdjhfksdjhfksdjhfdksjhfsdkjhfkdsjhfksdjhfsdkjhfsdkjhfsdkjhfjsdkhfkjdfhkjsdjhfsdkjfksdjhfkjsdhfkdsjhfkjsdhfkjsdhfsdjkhfkjsdfhksdhfkjdskjsdhfkjsdhfkjsdhfkjsdhfksjksdhfhfksdjhfkjdhfskdjdsjhfksdjfsdkhkjsdjkfhkjsdhfkjsdhdskjhfksdlahlaksa
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+一番最後の行をマジだと思ったら、お前は「バカ」だ。
+
+

@@ -1,0 +1,28 @@
+# -*- coding:utf-8 -*-
+
+from Tkinter import *
+import Dialog
+import sys
+
+root = Tk()
+root.option_add('*font', ('FixedSys', 14))
+sub_win = None
+
+numbers_table = [1,2,3,4,5,6,7,8,9,0]
+
+def resault():
+    Dialog.Dialog(root, title = resault, bitmap = 'info',
+                  text = anchor,
+                  strings = ['OK'], default = 0)
+
+def calc():
+    Dialog.Dialog(root, title = u'ボタン式電卓',
+                  strings = ['1','2','3','4','5','6','7','8','9','0','+','-','*','\'], default = 0)
+    
+Label(root, text = '電卓').pack()
+b0 = Button(root, text = u'ボタン式電卓', command = calc).pack()
+b10 = Button(root, text = u'終了', command = sys.exit).pack()
+
+root.mainloop()
+    
+    

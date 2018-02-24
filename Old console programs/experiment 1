@@ -1,0 +1,11 @@
+import csv
+
+filename = 'writing.csv'
+csvfile = (open(filename, 'r'))
+
+a = 'galaxy'
+b = '4869'
+c = [a,b]
+for item in csv.reader(csvfile):
+        if c==item:
+            print 'true'

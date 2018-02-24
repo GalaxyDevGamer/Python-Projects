@@ -1,0 +1,366 @@
+# -*- coding:utf-8-*-
+
+from Tkinter import *
+from time import *
+from tkFileDialog import *
+import tkFileDialog
+import Tkinter
+import Dialog
+import sys
+import os
+import sys, os.path
+
+
+root = Tk()
+
+path = '/home/desktop'
+
+w1 = None
+w2 = None
+w3 = None
+w4 = None
+
+op1 = BooleanVar()
+op1.set(False)
+op2 = BooleanVar()
+op2.set(False)
+op3 = BooleanVar()
+op3.set(False)
+op4 = BooleanVar()
+op4.set(False)
+op5 = BooleanVar()
+op5.set(False)
+op6 = BooleanVar()
+op6.set(False)
+op7 = BooleanVar()
+op7.set(False)
+op8 = BooleanVar()
+op8.set(False)
+op9 = BooleanVar()
+op9.set(False)
+op10 = BooleanVar()
+op10.set(False)
+op11 = BooleanVar()
+op11.set(False)
+op12 = BooleanVar()
+op12.set(False)
+op13 = BooleanVar()
+op13.set(False)
+op14 = BooleanVar()
+op14.set(False)
+op15 = BooleanVar()
+op15.set(False)
+op16 = BooleanVar()
+op16.set(False)
+op17 = BooleanVar()
+op17.set(False)
+op18 = BooleanVar()
+op18.set(False)
+op19 = BooleanVar()
+op19.set(False)
+op20 = BooleanVar()
+op20.set(False)
+op21 = BooleanVar()
+op21.set(False)
+op22 = BooleanVar()
+op22.set(False)
+op23 = BooleanVar()
+op23.set(False)
+op24 = BooleanVar()
+op24.set(False)
+op25 = BooleanVar()
+op25.set(False)
+op26 = BooleanVar()
+op26.set(False)
+op27 = BooleanVar()
+op27.set(False)
+op28 = BooleanVar()
+op28.set(False)
+op29 = BooleanVar()
+op29.set(False)
+buf = StringVar()
+buf.set('')
+buff = StringVar()
+buff.set('')
+buffe = StringVar()
+buffe.set('')
+buffer = StringVar()
+buffer.set('')
+names = StringVar()
+names.set('')
+pw = StringVar()
+pw.set('')
+mail = StringVar()
+mail.set('')
+
+f0 = Frame(root)
+buttons = []
+        
+if op2.get():
+    op3 = op13
+    op4 = op14
+    op5 = op15
+    op6 = op16
+    op7 = op17
+    op8 = op18
+    op9 
+    op10 
+    op11 
+    op12 
+def sleep():
+    global w3
+    w3 = Toplevel()
+    Label(w3, text = u'作業中でもスリープモード（ロック画面）に入ってしまうのでご注意ください').pack()
+    Label(w3, text = u'設定はホームから一度ロック画面に戻らないと適用されません').pack()
+    Label(w3, text = u'放置すると無限にウィンドウが増え続けます').pack()
+    f = LabelFrame(w3)
+    Checkbutton(f, text = u'1分', variable = op24, command = w3.destroy).pack()
+    Checkbutton(f, text = u'3分', variable = op25, command = w3.destroy).pack()
+    Checkbutton(f, text = u'5分', variable = op26, command = w3.destroy).pack()
+    Checkbutton(f, text = u'10分', variable = op27, command = w3.destroy).pack()
+    Checkbutton(f, text = u'30分', variable = op22, command = w3.destroy).pack()
+    Checkbutton(f, text = u'60分', variable = op21, command = w3.destroy).pack()
+    Checkbutton(f, text = u'90分', variable = op20, command = w3.destroy).pack()
+    Checkbutton(f, text = u'120分', variable = op19, command = w3.destroy).pack()
+    buttons.append(Checkbutton)
+    f.pack(padx = 5, pady = 5)
+    w2.destroy()
+def set():
+    global w2
+    w2 = Toplevel()
+    Button(w2, text = u'スリープモードをオンにする', command = sleep).pack()
+if op29.get():
+    Button.configure(state = new_state)
+    Button.new_state = 'disabled'
+def hide(n):
+    return lambda : buttons[n].lower()
+def ru():
+    root.lower()
+    unlock()
+    op28.set(True)
+    if op19.get():
+        root.after(12000000, ru)
+    if op20.get():
+        root.after(900000, ru)
+    if op21.get():
+        root.after(6000000, ru)
+    if op22.get():
+        root.after(1800000, ru)
+    if op24.get():
+        root.after(60000, ru)
+    if op25.get():
+        root.after(180000, ru)
+    if op26.get():
+        root.after(300000, ru)
+    if op27.get():
+        root.after(600000, ru)
+def cn():
+    global w4
+    w4 = Toplevel()
+    if names.get() == names.get():
+        if buffer.get() == pw.get():
+            Label(w4, text = u'新しいユーザー名の入力').pack()
+            names.set('')
+            Entry(w4, textvariable = names).pack()
+            Button(w4, text = u'変更する', command = w4.destroy).pack()
+            w3.destroy()
+        
+def pc():
+    global w3
+    w3 = Toplevel()
+    Label(w3, text = u'確認のためログインしてください').pack()
+    Entry(w3, textvariable = names).pack()
+    Entry(w3, textvariable = buffer, show = '*').pack()
+    Button(w3, text = u'ログイン', command = cn).pack()
+    w2.destroy()
+def done():
+    if pw.get() == buffer.get():
+        w4.destroy()
+    else:
+        Message(w4, text = u'パスワードが違います').pack()
+        pw.set('')
+        buffer.set('')
+def cna():
+    global w4
+    w4 = Toplevel()
+    if buffer.get() == pw.get():
+        buffer.set('')
+        pw.set('')
+        Label(w4, text = u'新しいパスワードを入力').pack()
+        Entry(w4, textvariable = pw, show = '*').pack()
+        Label(w4, text = u'確認のためもう一度入力').pack()
+        Entry(w4, textvariable = buffer, show = '*').pack()
+        Button(w4, text = u'変更する', command = done).pack()
+        w3.destroy()
+    else:
+        Message(w3, text = u'パスワードが違います').pack()
+        buffer.set('')
+def pca():
+    global w3
+    w3 = Toplevel()
+    buffer.set('')
+    Label(w3, text = u'古いパスワードを入力').pack()
+    Entry(w3, textvariable = buffer, show = '*').pack()
+    Button(w3, text = u'次へ', command = cna).pack()
+    w2.destroy()
+def account():
+    global w2
+    w2 = Toplevel()
+    Button(w2, text = u'アカウント名を変更する', command = pc).pack()
+    Button(w2, text = u'パスワードを変更する', command = pca).pack()
+def calc(event):
+    f5 = Frame(root)
+    lb = Listbox(f5)
+    expr = mail.get()
+    lb.insert('end',expr)
+    lb.see('end')
+    mail.set('')
+def loadpic():
+    global picdata, path
+    fn = askopenfilename(filetypes = [('All Files', '*'),
+                                      ('JPG Files', '.jpg'),
+                                      ('PPM FIles', '.ppm')],initialdir = path)
+    if fn != '':
+            path = os.path.dirname(fn)
+            picdata = Tkinter.PhotoImage(file = fn)
+            label.configure(image = picdata)
+f5 = Frame(root)
+lb = Listbox(f5)
+f4 = Frame(root)
+ver = 2.0
+nam = 'GILABO'
+Label(root, text = u'%s %d.0' % (nam, ver)).pack()
+picdata = PhotoImage(width = 64, height = 64)
+label1 = Label(f0, image = picdata).pack()
+Button(f0, text = 'Load', command = loadpic).pack()
+e = Entry(f5, textvariable = mail).pack()
+e.bind('<Return>', calc)
+Button(root, text = u'投稿', command = calc).pack(side = RIGHT)
+sb1 = Scrollbar(f5, orient = 'v', command = lb.yview)
+lb.configure(yscrollcommand = sb1.set)
+lb.pack()
+f5.pack(side = RIGHT)
+Label(f0, text = u'ユーザー:').pack(in_ = f0, side = LEFT)
+Label(f0, textvariable = names).pack(in_ = f0, side = LEFT)
+f0.pack(fill = BOTH)
+Button(f4, text = 'A', command = account).pack(fill = BOTH)
+Label(f4, text = u'アカウント').pack(fill = BOTH)
+Button(f4, text = u'†', command = set).pack(fill = BOTH)
+Label(f4, text = u'設定').pack(fill = BOTH)
+Button(f4, text = 'L', command = ru).pack(fill = BOTH)
+Label(f4, text = u'ロック画面に戻る').pack(fill = BOTH)
+buttons.append(f0)
+buttons.append(root)
+buttons.append(f4)
+f4.pack()
+time()
+
+def pok():
+    if names.get() == names.get():
+        if pw.get() == buffe.get():
+            if op28.get():
+                w2.destroy()
+                w1.destroy()
+                root.lift()
+                buffe.set('')
+            else:
+                w2.destroy()
+                w1.destroy()
+                buffe.set('')
+        else:
+            Message(w2, text = u'ID又はパスワードが違います').pack()
+            buffe.set('')
+def homes():
+    w2.destroy()
+def hometo():
+    root.lift()
+    w2.destroy()
+        
+def sc():
+    global w2
+    w2 = Toplevel()
+    if op2.get():
+        Label(w2, text = u'自動ログイン中').pack()
+        root.after(1000, hometo)
+        w1.destroy()
+        root.lower()
+    else:
+        f1 = Frame(w2)
+        f2 = Frame(w2)
+        Label(w2, text = u'ログイン').pack()
+        Entry(f1, textvariable = names).pack(side = RIGHT)
+        Label(f1, text = u'ID:').pack(side = LEFT)
+        Entry(f2, textvariable = buffe, show = '*').pack(side = RIGHT)
+        Label(f2, text = u'パスワード:').pack(side = LEFT)
+        Checkbutton(w2, text = u'次回から自動ログイン', variable = op2).pack()
+        f1.pack()
+        f2.pack()
+        Button(w2, text = u'決定', command = pok).pack()
+        w1.destroy()
+def time():
+    buf.set(strftime('%H:%M:%S'))
+    root.after(1000, time)
+def unlock():
+    global w1
+    w1 = Toplevel()
+    Label(w1, text = 'GILABO').pack()
+    Label(w1, textvariable = buf).pack()
+    Button(w1, text = u'アンロック', command = sc).pack()
+def unlocks():
+    if names.get():
+        if pw.get():
+            if pw.get() == buffer.get():
+                global w1
+                w1 = Toplevel()
+                Label(w1, text = 'GILABO').pack()
+                Label(w1, textvariable = buf).pack()
+                Button(w1, text = u'アンロック', command = sc).pack()
+                root.lower()
+                w3.destroy()
+                buffer.set('')
+        else:
+            Message(w3, text = u'ユーザー名が入力されていないかパスワードが違います').pack()
+            pw.set('')
+            buffer.set('')
+
+def cs():
+    if op1.get():
+        global w3
+        w3 = Toplevel()
+        f1 = Frame(w3)
+        f2 = Frame(w3)
+        f3 = Frame(w3)
+        Label(w3, text = u'ユーザー登録').pack()
+        Entry(f1, textvariable = names).pack(side = RIGHT)
+        Label(f1, text = u'ID:').pack(side = LEFT)
+        Entry(f2, textvariable = pw, show = '*').pack(side = RIGHT)
+        Label(f2, text = u'パスワード:').pack(side = LEFT)
+        Entry(f3, textvariable = buffer, show = '*').pack(side = RIGHT)
+        Label(f3, text = u'確認のためもう１度入力').pack(side = LEFT)
+        f1.pack()
+        f2.pack()
+        f3.pack()
+        Button(w3, text = u'決定', command = unlocks).pack()
+        time()
+        w2.destroy()
+
+def license():
+    global w2
+    w2 = Toplevel()
+    Label(w2, text = u'このソフトウェアは無料版です。従って').pack()
+    Label(w2, text = u'このソフトの存在を意味する最低限の機能しか利用できません').pack()
+    Label(w2, text = u'その他の機能を求める場合は完全版（有料）をお求めください').pack()
+    Label(w2, text = u'これでもソフトは完成ではなく、どんどんアップデートを重ねて').pack()
+    Label(w2, text = u'さらに便利な機能を追加していく予定です。そのためにも有料版').pack()
+    Label(w2, text = u'の購入をお願いします（無料版では機能しません）。その他').pack()
+    Label(w2, text = u'レビューなどで皆様の意見・感想をお聞かせください。今後の').pack()
+    Label(w2, text = u'開発の参考にさせていただきます。').pack()
+    Label(w2, text = u'本ソフトによるPCに何らか被害が起きても保障は致しかねます。').pack()
+    Label(w2, text = u'この文の無断転記・展示を禁止ます GUG').pack()
+    Checkbutton(w2, text = u'同意します', variable = op1).pack()
+    b1 = Button(w2, text = u'次へ', command = cs).pack()
+    Button(w2, text = u'キャンセル', command = sys.exit).pack()
+    root.lower()
+root.after(10, license)
+
+root.mainloop()

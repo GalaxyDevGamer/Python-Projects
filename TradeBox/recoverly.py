@@ -1,0 +1,72 @@
+# -*- coding:utf-8 -*-
+from Tkinter import *
+import tkMessageBox
+import Dialog
+import codecs
+root = Tk()
+def don():
+    a = codecs.open('item1.dat', 'w', 'shift-jis')
+    b = codecs.open('item2.dat', 'w', 'shift-jis')
+    c = codecs.open('item3.dat', 'w', 'shift-jis')
+    d = codecs.open('item4.dat', 'w', 'shift-jis')
+    e = codecs.open('item5.dat', 'w', 'shift-jis')
+    f = codecs.open('item6.dat', 'w', 'shift-jis')
+    g = codecs.open('item7.dat', 'w', 'shift-jis')
+    h = codecs.open('item8.dat', 'w', 'shift-jis')
+    i = codecs.open('item9.dat', 'w', 'shift-jis')
+    j = codecs.open('item10.dat', 'w', 'shift-jis')
+    k = open('item1pr.dat', 'w')
+    l = open('item2pr.dat', 'w')
+    m = open('item3pr.dat', 'w')
+    n = open('item4pr.dat', 'w')
+    o = open('item5pr.dat', 'w')
+    p = open('item6pr.dat', 'w')
+    q = open('item7pr.dat', 'w')
+    r = open('item8pr.dat', 'w')
+    s = open('item9pr.dat', 'w')
+    t = open('item10pr.dat', 'w')
+    u = open('wallet.dat', 'w')
+    a.write('empty')
+    b.write('empty')
+    c.write('empty')
+    d.write('empty')
+    e.write('empty')
+    f.write('empty')
+    g.write('empty')
+    h.write('empty')
+    i.write('empty')
+    j.write('empty')
+    u.write('0')
+    k.write('0')
+    l.write('0')
+    m.write('0')
+    n.write('0')
+    o.write('0')
+    p.write('0')
+    q.write('0')
+    r.write('0')
+    s.write('0')
+    t.write('0')
+    f1 = open('owner.dat', 'w')
+    f1.write('abc')
+    f2 = open('pw.dat', 'w')
+    f2.write('12345')
+    Dialog.Dialog(root, title = 'done', bitmap = 'info',
+                  text = '初期化が完了しました。管理者 ID:abc PW:12345',
+                  strings = ['OK'], default = 0)
+    sys.exit()
+def check():
+    a = tkMessageBox.askokcancel(message = '本当に初期化しますか？')
+    if a:
+        don()
+    else:
+        sys.exit()
+        
+Label(root, text = 'リカバリー').pack()
+Label(root, text = 'このプログラムはファイルの紛失や破損によって動かなくなったTradeBoxを修正するプログラムです').pack()
+Label(root, text = '実行する前に必ず下記を確認してください', bg = 'red').pack()
+Label(root, text = '*実行するとファイルはすべて初期化されます').pack()
+Button(root, text = '実行する', command = check).pack()
+Button(root, text = '終了', command = sys.exit).pack()
+
+root.mainloop()
